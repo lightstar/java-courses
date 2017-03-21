@@ -6,14 +6,17 @@ package ru.lightstar.calculate;
  * @author LightStar
  * @since 0.0.1
  */
-public class Calculate {
+public class Calculator {
 
+    /**
+     * result value
+     */
     private double result;
 
     /**
-     * Constructs <code>Calculate</code> object with zero initial value
+     * Constructs <code>Calculator</code> object with zero initial value
      */
-    public Calculate() {
+    public Calculator() {
         this(0);
     }
 
@@ -22,7 +25,7 @@ public class Calculate {
      *
      * @param init initial value of calculation
      */
-    public Calculate(final double init) {
+    public Calculator(final double init) {
         this.result = init;
     }
 
@@ -30,10 +33,10 @@ public class Calculate {
      * Run operation with current value of calculation using provided operand
      *
      * @param operation operation
-     * @param value operand
+     * @param value     operand
      */
     public void run(final Operation operation, final double value) {
-        switch(operation) {
+        switch (operation) {
             case PLUS:
                 this.result += value;
                 break;
@@ -62,7 +65,7 @@ public class Calculate {
      *
      * @param operationString operation, presented as string. Must be one of: <i>+, -, *, /, ^</i>.<br>
      *                        Otherwise {@link IllegalArgumentException} is thrown.
-     * @param value operand
+     * @param value           operand
      */
     public void run(final String operationString, final double value) {
         this.run(this.parseOperationString(operationString), value);
@@ -79,19 +82,19 @@ public class Calculate {
 
         switch (operationString) {
             case "+":
-                operation = Calculate.Operation.PLUS;
+                operation = Calculator.Operation.PLUS;
                 break;
             case "-":
-                operation = Calculate.Operation.MINUS;
+                operation = Calculator.Operation.MINUS;
                 break;
             case "*":
-                operation = Calculate.Operation.MUL;
+                operation = Calculator.Operation.MUL;
                 break;
             case "/":
-                operation = Calculate.Operation.DIV;
+                operation = Calculator.Operation.DIV;
                 break;
             case "^":
-                operation = Calculate.Operation.EXP;
+                operation = Calculator.Operation.EXP;
                 break;
             default:
                 throw new IllegalArgumentException(String.format("Unknown operation '%s'", operationString));
@@ -106,7 +109,14 @@ public class Calculate {
      * @return result
      */
     public double getResult() {
-        return result;
+        return this.result;
+    }
+
+    /**
+     * Clean calculation result
+     */
+    public void cleanResult() {
+        this.result = 0;
     }
 
     /**
