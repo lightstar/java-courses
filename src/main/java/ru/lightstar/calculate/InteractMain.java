@@ -20,6 +20,7 @@ public class InteractMain {
      */
     public static void main(final String[] args) {
         InteractMain interactMain = new InteractMain();
+        interactMain.init();
         interactMain.run();
         interactMain.close();
     }
