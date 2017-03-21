@@ -2,20 +2,24 @@ package ru.lightstar.calculate;
 
 /**
  * Calculation object
+ *
+ * @author LightStar
+ * @since 0.0.1
  */
 public class Calculate {
 
     private double result;
 
     /**
-     * Calculation object
+     * Constructs <code>Calculate</code> object with zero initial value
      */
     public Calculate() {
         this(0);
     }
 
     /**
-     * Calculation object
+     * Construct <code>Calculation</code> object with given initial value
+     *
      * @param init initial value of calculation
      */
     public Calculate(final double init) {
@@ -49,12 +53,24 @@ public class Calculate {
                 this.result = Math.pow(this.result, value);
                 break;
             default:
-                throw new IllegalArgumentException("Unknown operation");
+                throw new IllegalArgumentException(String.format("Unknown operation: '%s'", operation.name()));
         }
     }
 
     /**
+     * Run operation with current value of calculation using provided operand
+     *
+     * @param operationString operation, presented as string. Must be one of: <i>+, -, *, /, ^</i>.<br>
+     *                        Otherwise {@link IllegalArgumentException} is thrown.
+     * @param value operand
+     */
+    public void run(final String operationString, final double value) {
+        this.run(this.parseOperationString(operationString), value);
+    }
+
+    /**
      * Parsing operation string
+     *
      * @param operationString input string
      * @return operation value
      */
@@ -86,6 +102,7 @@ public class Calculate {
 
     /**
      * Get result of calculation
+     *
      * @return result
      */
     public double getResult() {
