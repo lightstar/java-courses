@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>ru.lightstar</groupId>
-	<artifactId>calculate</artifactId>
+	<artifactId>calculator</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
@@ -40,7 +40,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>ru.lightstar.calculate.Main</mainClass>
+							<mainClass>ru.lightstar.calculator.Main</mainClass>
 							<addClasspath>true</addClasspath>
 						</manifest>
 					</archive>
