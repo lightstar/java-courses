@@ -1,6 +1,7 @@
 package ru.lightstar.calculate;
 
 import org.junit.Test;
+import ru.lightstar.calculate.exception.CalculateException;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
@@ -17,7 +18,7 @@ public class CalculatorTest {
      * Test PLUS operation
      */
     @Test
-    public void whenAddThenResult() {
+    public void whenAddThenResult() throws CalculateException {
         Calculator calculator = new Calculator(5);
         calculator.run(Calculator.Operation.PLUS, 3);
         assertThat(calculator.getResult(), is(8d));
@@ -27,7 +28,7 @@ public class CalculatorTest {
      * Test MINUS operation
      */
     @Test
-    public void whenSubThenResult() {
+    public void whenSubThenResult() throws CalculateException {
         Calculator calculator = new Calculator(5);
         calculator.run(Calculator.Operation.MINUS, 3);
         assertThat(calculator.getResult(), is(2d));
@@ -37,7 +38,7 @@ public class CalculatorTest {
      * Test MUL operation
      */
     @Test
-    public void whenMulThenResult() {
+    public void whenMulThenResult() throws CalculateException {
         Calculator calculator = new Calculator(5);
         calculator.run(Calculator.Operation.MUL, 3);
         assertThat(calculator.getResult(), is(15d));
@@ -47,7 +48,7 @@ public class CalculatorTest {
      * Test DIV operation
      */
     @Test
-    public void whenDivThenResult() {
+    public void whenDivThenResult() throws CalculateException {
         Calculator calculator = new Calculator(15);
         calculator.run(Calculator.Operation.DIV, 3);
         assertThat(calculator.getResult(), is(5d));
@@ -56,8 +57,8 @@ public class CalculatorTest {
     /**
      * Test division by zero
      */
-    @Test(expected = IllegalArgumentException.class)
-    public void whenDivZeroThenException() {
+    @Test(expected = CalculateException.class)
+    public void whenDivZeroThenException() throws CalculateException {
         Calculator calculator = new Calculator(15);
         calculator.run(Calculator.Operation.DIV, 0);
     }
@@ -66,7 +67,7 @@ public class CalculatorTest {
      * Test EXP operation
      */
     @Test
-    public void whenExpThenResult() {
+    public void whenExpThenResult() throws CalculateException {
         Calculator calculator = new Calculator(2);
         calculator.run(Calculator.Operation.EXP, 3);
         assertThat(calculator.getResult(), is(8d));
@@ -76,7 +77,7 @@ public class CalculatorTest {
      * Test multiple operations
      */
     @Test
-    public void whenMultipleOperationsThenResult() {
+    public void whenMultipleOperationsThenResult() throws CalculateException {
         Calculator calculator = new Calculator();
         calculator.run(Calculator.Operation.PLUS, 2);
         calculator.run(Calculator.Operation.MUL,3);
@@ -86,79 +87,10 @@ public class CalculatorTest {
     }
 
     /**
-     * Test PLUS operation, represented by string
-     */
-    @Test
-    public void whenAddStringThenResult() {
-        Calculator calculator = new Calculator(5);
-        calculator.run("+", 3);
-        assertThat(calculator.getResult(), is(8d));
-    }
-
-    /**
-     * Test PLUS operation parsing
-     */
-    @Test
-    public void whenPlusStringThenPlusOperation() {
-        Calculator calculator = new Calculator();
-        Calculator.Operation operation = calculator.parseOperationString("+");
-        assertThat(operation, is(Calculator.Operation.PLUS));
-    }
-
-    /**
-     * Test MINUS operation parsing
-     */
-    @Test
-    public void whenMinusStringThenMinusOperation() {
-        Calculator calculator = new Calculator();
-        Calculator.Operation operation = calculator.parseOperationString("-");
-        assertThat(operation, is(Calculator.Operation.MINUS));
-    }
-
-    /**
-     * Test MUL operation parsing
-     */
-    @Test
-    public void whenMulStringThenMulOperation() {
-        Calculator calculator = new Calculator();
-        Calculator.Operation operation = calculator.parseOperationString("*");
-        assertThat(operation, is(Calculator.Operation.MUL));
-    }
-
-    /**
-     * Test DIV operation parsing
-     */
-    @Test
-    public void whenDivStringThenDivOperation() {
-        Calculator calculator = new Calculator();
-        Calculator.Operation operation = calculator.parseOperationString("/");
-        assertThat(operation, is(Calculator.Operation.DIV));
-    }
-
-    /**
-     * Test EXP operation parsing
-     */
-    @Test
-    public void whenExpStringThenExpOperation() {
-        Calculator calculator = new Calculator();
-        Calculator.Operation operation = calculator.parseOperationString("^");
-        assertThat(operation, is(Calculator.Operation.EXP));
-    }
-
-    /**
-     * Test unknown operation parsing
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void whenUnsupportedStringThenException() {
-        Calculator calculator = new Calculator();
-        Calculator.Operation operation = calculator.parseOperationString("&");
-    }
-
-    /**
      * Test clean result
      */
     @Test
-    public void whenCleanResultThenZeroResult() {
+    public void whenCleanResultThenZeroResult() throws CalculateException {
         Calculator calculator = new Calculator(5);
         calculator.run(Calculator.Operation.PLUS, 2);
         calculator.cleanResult();

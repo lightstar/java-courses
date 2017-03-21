@@ -86,7 +86,11 @@ public class InteractMainTest extends MainTest {
         OutputStream outputStream = this.mockStandardOutput();
         this.mockStandardInput(this.joinLines(inputLines).getBytes());
 
-        InteractMain.main(null);
+        InteractMain interactMain = new InteractMain();
+        interactMain.init();
+        interactMain.run();
+        interactMain.close();
+
         assertThat(outputStream.toString(), is(this.joinLines(outputLines)));
     }
 

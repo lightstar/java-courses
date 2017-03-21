@@ -1,5 +1,7 @@
 package ru.lightstar.calculate;
 
+import ru.lightstar.calculate.exception.CalculateException;
+
 /**
  * Calculation object
  *
@@ -35,7 +37,7 @@ public class Calculator {
      * @param operation operation
      * @param value     operand
      */
-    public void run(final Operation operation, final double value) {
+    public void run(final Operation operation, final double value) throws CalculateException {
         switch (operation) {
             case PLUS:
                 this.result += value;
@@ -48,7 +50,7 @@ public class Calculator {
                 break;
             case DIV:
                 if (value == 0) {
-                    throw new IllegalArgumentException("Can't divide by zero");
+                    throw new CalculateException("Can't divide by zero");
                 }
                 this.result /= value;
                 break;
@@ -56,51 +58,8 @@ public class Calculator {
                 this.result = Math.pow(this.result, value);
                 break;
             default:
-                throw new IllegalArgumentException(String.format("Unknown operation: '%s'", operation.name()));
+                throw new CalculateException(String.format("Unknown operation: '%s'", operation.name()));
         }
-    }
-
-    /**
-     * Run operation with current value of calculation using provided operand
-     *
-     * @param operationString operation, presented as string. Must be one of: <i>+, -, *, /, ^</i>.<br>
-     *                        Otherwise {@link IllegalArgumentException} is thrown.
-     * @param value           operand
-     */
-    public void run(final String operationString, final double value) {
-        this.run(this.parseOperationString(operationString), value);
-    }
-
-    /**
-     * Parsing operation string
-     *
-     * @param operationString input string
-     * @return operation value
-     */
-    public Operation parseOperationString(final String operationString) {
-        final Operation operation;
-
-        switch (operationString) {
-            case "+":
-                operation = Calculator.Operation.PLUS;
-                break;
-            case "-":
-                operation = Calculator.Operation.MINUS;
-                break;
-            case "*":
-                operation = Calculator.Operation.MUL;
-                break;
-            case "/":
-                operation = Calculator.Operation.DIV;
-                break;
-            case "^":
-                operation = Calculator.Operation.EXP;
-                break;
-            default:
-                throw new IllegalArgumentException(String.format("Unknown operation '%s'", operationString));
-        }
-
-        return operation;
     }
 
     /**
@@ -113,10 +72,19 @@ public class Calculator {
     }
 
     /**
+     * Set current value of calculation
+     *
+     * @param value new value of calculation
+     */
+    public void setResult(double value) {
+        this.result = value;
+    }
+
+    /**
      * Clean calculation result
      */
     public void cleanResult() {
-        this.result = 0;
+        this.setResult(0);
     }
 
     /**

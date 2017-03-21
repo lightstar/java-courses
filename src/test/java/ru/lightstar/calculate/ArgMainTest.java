@@ -44,7 +44,7 @@ public class ArgMainTest extends MainTest {
      */
     @Test
     public void whenNotNumberThenError() {
-        this.testArgsAndOutput(new String[]{"a","+","3"}, "Can't parse number for input string: \"a\"");
+        this.testArgsAndOutput(new String[]{"a","+","3"}, "'a' is not a number");
     }
 
     /**
@@ -71,7 +71,10 @@ public class ArgMainTest extends MainTest {
      */
     private void testArgsAndOutput(String[] args, String outputString) {
         OutputStream outputStream = this.mockStandardOutput();
-        ArgMain.main(args);
+
+        ArgMain argMain = new ArgMain();
+        argMain.run(args);
+
         assertThat(outputStream.toString(), is(String.format("%s%s", outputString, LN)));
     }
 }
