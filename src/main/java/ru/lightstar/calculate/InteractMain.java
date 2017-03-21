@@ -41,6 +41,11 @@ public class InteractMain {
     final private Calculator calculator;
 
     /**
+     * Closed flag
+     */
+    boolean isClosed;
+
+    /**
      * Construct <code>InteractMain</code> object
      */
     public InteractMain() {
@@ -71,6 +76,10 @@ public class InteractMain {
      * Run calculation by asking user of values and operations to calculate
      */
     public void run() {
+        if (this.isClosed) {
+            throw new IllegalStateException("Runner is closed, can't run anymore");
+        }
+
         String exit = "";
 
         while (!exit.toLowerCase().equals("yes")) {
@@ -98,7 +107,11 @@ public class InteractMain {
         System.out.println("Good bye!");
     }
 
+    /**
+     * Close runner. You can't call run method after this.
+     */
     public void close() {
         this.scanner.close();
+        this.isClosed = true;
     }
 }
