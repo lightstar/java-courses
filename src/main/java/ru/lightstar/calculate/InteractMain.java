@@ -40,6 +40,8 @@ public class InteractMain {
             exit = scanner.next();
         }
 
+        scanner.close();
+
         System.out.println("Good bye!");
     }
 }
