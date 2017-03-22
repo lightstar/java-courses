@@ -8,7 +8,8 @@ import java.io.*;
  * @author LightStar
  * @since 0.0.1
  */
-public abstract class MainTest {
+public abstract class RunnerTest {
+
     /**
      * System-dependent line separator
      */

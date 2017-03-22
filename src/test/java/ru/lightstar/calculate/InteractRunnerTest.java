@@ -8,12 +8,12 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
 /**
- * Tests for <code>InteractMain</code>, <code>Calculator</code> object runner
+ * Tests for <code>InteractRunner</code> class
  *
  * @author LightStar
  * @since 0.0.1
  */
-public class InteractMainTest extends MainTest {
+public class InteractRunnerTest extends RunnerTest {
 
     /**
      * Test clean operation
@@ -77,6 +77,16 @@ public class InteractMainTest extends MainTest {
     }
 
     /**
+     * Test that it is impossible to run after close
+     */
+    @Test(expected = IllegalStateException.class)
+    public void whenRunAfterCloseThenIllegalStateException() {
+        InteractRunner interactRunner = new InteractRunner();
+        interactRunner.close();
+        interactRunner.run();
+    }
+
+    /**
      * Generic test for interact runner
      *
      * @param inputLines  lines used in place of standard input stream
@@ -86,10 +96,10 @@ public class InteractMainTest extends MainTest {
         OutputStream outputStream = this.mockStandardOutput();
         this.mockStandardInput(this.joinLines(inputLines).getBytes());
 
-        InteractMain interactMain = new InteractMain();
-        interactMain.init();
-        interactMain.run();
-        interactMain.close();
+        InteractRunner interactRunner = new InteractRunner();
+        interactRunner.init();
+        interactRunner.run();
+        interactRunner.close();
 
         assertThat(outputStream.toString(), is(this.joinLines(outputLines)));
     }

@@ -8,12 +8,12 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
 /**
- * Tests for <code>ArgMain</code>, <code>Calculator</code> object runner
+ * Tests for <code>ArgRunner</code> class
  *
  * @author LightStar
  * @since 0.0.1
  */
-public class ArgMainTest extends MainTest {
+public class ArgRunnerTest extends RunnerTest {
 
     /**
      * Test run with no args
@@ -72,8 +72,8 @@ public class ArgMainTest extends MainTest {
     private void testArgsAndOutput(String[] args, String outputString) {
         OutputStream outputStream = this.mockStandardOutput();
 
-        ArgMain argMain = new ArgMain();
-        argMain.run(args);
+        ArgRunner argRunner = new ArgRunner(args);
+        argRunner.run();
 
         assertThat(outputStream.toString(), is(String.format("%s%s", outputString, LN)));
     }

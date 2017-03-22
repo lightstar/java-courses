@@ -1,6 +1,7 @@
 package ru.lightstar.calculate;
 
 import ru.lightstar.calculate.exception.CalculateException;
+import ru.lightstar.calculate.operation.Operation;
 
 /**
  * Calculation object
@@ -28,6 +29,7 @@ public class Calculator {
      * @param init initial value of calculation
      */
     public Calculator(final double init) {
+        super();
         this.result = init;
     }
 
@@ -36,30 +38,10 @@ public class Calculator {
      *
      * @param operation operation
      * @param value     operand
+     * @throws CalculateException thrown when you try divide by zero
      */
     public void run(final Operation operation, final double value) throws CalculateException {
-        switch (operation) {
-            case PLUS:
-                this.result += value;
-                break;
-            case MINUS:
-                this.result -= value;
-                break;
-            case MUL:
-                this.result *= value;
-                break;
-            case DIV:
-                if (value == 0) {
-                    throw new CalculateException("Can't divide by zero");
-                }
-                this.result /= value;
-                break;
-            case EXP:
-                this.result = Math.pow(this.result, value);
-                break;
-            default:
-                throw new CalculateException(String.format("Unknown operation: '%s'", operation.name()));
-        }
+        this.result = operation.run(this.result, value);
     }
 
     /**
@@ -76,7 +58,7 @@ public class Calculator {
      *
      * @param value new value of calculation
      */
-    public void setResult(double value) {
+    public void setResult(final double value) {
         this.result = value;
     }
 
@@ -85,16 +67,5 @@ public class Calculator {
      */
     public void cleanResult() {
         this.setResult(0);
-    }
-
-    /**
-     * Operations used in calculations
-     */
-    public enum Operation {
-        PLUS,
-        MINUS,
-        MUL,
-        DIV,
-        EXP
     }
 }
