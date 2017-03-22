@@ -105,15 +105,12 @@ public class InteractRunner {
      * @throws CalculateException thrown on calculation error, for example divide by zero
      */
     private void processOperation() throws ParserException, CalculateException {
-        System.out.println("Enter operation (+, -, *, /, ^ or clean to clean result): ");
+        final String operationString = this.askUser("Enter operation (+, -, *, /, ^) or word 'clean' to clean result: ");
 
-        final String operationString = this.scanner.next();
-
-        if (operationString.equals("clean")) {
+        if (operationString.toLowerCase().equals("clean")) {
             calculator.cleanResult();
         } else {
-            System.out.println("Enter operand: ");
-            final String operandString = this.scanner.next();
+            final String operandString = this.askUser("Enter operand: ");
             calculator.run(this.operationParser.parse(operationString), this.operandParser.parse(operandString));
         }
 
@@ -126,7 +123,17 @@ public class InteractRunner {
      * @return true if user wants to exit
      */
     private boolean isUserWantsToExit() {
-        System.out.println("Exit? [yes/no]:");
-        return this.scanner.next().toLowerCase().equals("yes");
+        return this.askUser("Exit? [yes/no]:").toLowerCase().equals("yes");
+    }
+
+    /**
+     * Ask user a question
+     *
+     * @param question question string
+     * @return user's answer
+     */
+    private String askUser(final String question) {
+        System.out.println(question);
+        return this.scanner.next();
     }
 }

@@ -26,7 +26,7 @@ public class InteractRunnerTest extends RunnerTest {
                         "yes"
                 }, new String[]{
                         "Enter initial value: ",
-                        "Enter operation (+, -, *, /, ^ or clean to clean result): ",
+                        "Enter operation (+, -, *, /, ^) or word 'clean' to clean result: ",
                         "Result: 0,00",
                         "Exit? [yes/no]:",
                         "Good bye!"
@@ -55,19 +55,19 @@ public class InteractRunnerTest extends RunnerTest {
                         "yes"
                 }, new String[]{
                         "Enter initial value: ",
-                        "Enter operation (+, -, *, /, ^ or clean to clean result): ",
+                        "Enter operation (+, -, *, /, ^) or word 'clean' to clean result: ",
                         "Enter operand: ",
                         "Result: 7,00",
                         "Exit? [yes/no]:",
-                        "Enter operation (+, -, *, /, ^ or clean to clean result): ",
+                        "Enter operation (+, -, *, /, ^) or word 'clean' to clean result: ",
                         "Enter operand: ",
                         "Result: 21,00",
                         "Exit? [yes/no]:",
-                        "Enter operation (+, -, *, /, ^ or clean to clean result): ",
+                        "Enter operation (+, -, *, /, ^) or word 'clean' to clean result: ",
                         "Enter operand: ",
                         "Result: 441,00",
                         "Exit? [yes/no]:",
-                        "Enter operation (+, -, *, /, ^ or clean to clean result): ",
+                        "Enter operation (+, -, *, /, ^) or word 'clean' to clean result: ",
                         "Enter operand: ",
                         "Result: 147,00",
                         "Exit? [yes/no]:",
