@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>ru.lightstar</groupId>
-	<artifactId>calculator</artifactId>
+	<artifactId>job4j-calculator</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
