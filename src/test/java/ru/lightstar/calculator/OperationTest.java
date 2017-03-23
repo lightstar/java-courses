@@ -1,8 +1,8 @@
-package ru.lightstar.calculate;
+package ru.lightstar.calculator;
 
 import org.junit.Test;
-import ru.lightstar.calculate.exception.CalculateException;
-import ru.lightstar.calculate.operation.*;
+import ru.lightstar.calculator.exception.CalculateException;
+import ru.lightstar.calculator.operation.*;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;

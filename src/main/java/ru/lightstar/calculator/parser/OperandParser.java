@@ -1,6 +1,6 @@
-package ru.lightstar.calculate.parser;
+package ru.lightstar.calculator.parser;
 
-import ru.lightstar.calculate.exception.ParserException;
+import ru.lightstar.calculator.exception.ParserException;
 
 /**
  * <code>OperandParser</code> object used to parse operands entered by user

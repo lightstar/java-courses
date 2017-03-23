@@ -1,9 +1,9 @@
-package ru.lightstar.calculate;
+package ru.lightstar.calculator;
 
-import ru.lightstar.calculate.exception.CalculateException;
-import ru.lightstar.calculate.exception.ParserException;
-import ru.lightstar.calculate.parser.OperandParser;
-import ru.lightstar.calculate.parser.OperationParser;
+import ru.lightstar.calculator.exception.CalculateException;
+import ru.lightstar.calculator.exception.ParserException;
+import ru.lightstar.calculator.parser.OperandParser;
+import ru.lightstar.calculator.parser.OperationParser;
 
 import java.util.Scanner;
 
@@ -31,7 +31,7 @@ public class InteractRunner {
     private final OperationParser operationParser;
 
     /**
-     * Used to calculate result
+     * Used to calculator result
      */
     private final Calculator calculator;
 
@@ -70,7 +70,7 @@ public class InteractRunner {
     }
 
     /**
-     * Run calculation by asking user of values and operations to calculate
+     * Run calculation by asking user of values and operations to calculator
      *
      * @throws IllegalStateException thrown if this <code>InteractRunner</code> object is closed
      */

@@ -1,4 +1,4 @@
-package ru.lightstar.calculate;
+package ru.lightstar.calculator;
 
 import java.io.*;
 

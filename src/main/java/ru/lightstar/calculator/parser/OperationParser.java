@@ -1,7 +1,7 @@
-package ru.lightstar.calculate.parser;
+package ru.lightstar.calculator.parser;
 
-import ru.lightstar.calculate.exception.ParserException;
-import ru.lightstar.calculate.operation.*;
+import ru.lightstar.calculator.exception.ParserException;
+import ru.lightstar.calculator.operation.*;
 
 import java.util.HashMap;
 import java.util.Map;

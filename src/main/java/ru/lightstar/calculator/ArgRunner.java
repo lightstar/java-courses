@@ -1,9 +1,9 @@
-package ru.lightstar.calculate;
+package ru.lightstar.calculator;
 
-import ru.lightstar.calculate.exception.CalculateException;
-import ru.lightstar.calculate.exception.ParserException;
-import ru.lightstar.calculate.parser.OperandParser;
-import ru.lightstar.calculate.parser.OperationParser;
+import ru.lightstar.calculator.exception.CalculateException;
+import ru.lightstar.calculator.exception.ParserException;
+import ru.lightstar.calculator.parser.OperandParser;
+import ru.lightstar.calculator.parser.OperationParser;
 
 /**
  * ArgRunner class, used as runner for <code>Calculator</code> object
@@ -29,7 +29,7 @@ public class ArgRunner {
     private final OperationParser operationParser;
 
     /**
-     * Used to calculate result
+     * Used to calculator result
      */
     private final Calculator calculator;
 

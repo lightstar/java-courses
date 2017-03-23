@@ -1,4 +1,4 @@
-package ru.lightstar.calculate.exception;
+package ru.lightstar.calculator.exception;
 
 /**
  * Error of translating user input into internal representation

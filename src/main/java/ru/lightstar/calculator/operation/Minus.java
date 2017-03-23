@@ -1,6 +1,6 @@
-package ru.lightstar.calculate.operation;
+package ru.lightstar.calculator.operation;
 
-import ru.lightstar.calculate.exception.CalculateException;
+import ru.lightstar.calculator.exception.CalculateException;
 
 /**
  * 'Minus' operation

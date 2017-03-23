@@ -4,4 +4,4 @@
  * @author LightStar
  * @since 0.0.1
  */
-package ru.lightstar.calculate.exception;
+package ru.lightstar.calculator.exception;

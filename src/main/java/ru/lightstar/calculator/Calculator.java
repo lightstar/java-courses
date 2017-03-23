@@ -1,7 +1,7 @@
-package ru.lightstar.calculate;
+package ru.lightstar.calculator;
 
-import ru.lightstar.calculate.exception.CalculateException;
-import ru.lightstar.calculate.operation.Operation;
+import ru.lightstar.calculator.exception.CalculateException;
+import ru.lightstar.calculator.operation.Operation;
 
 /**
  * Calculation object

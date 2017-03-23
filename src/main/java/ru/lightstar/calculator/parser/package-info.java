@@ -4,4 +4,4 @@
  * @author LightStar
  * @since 0.0.1
  */
-package ru.lightstar.calculate.parser;
+package ru.lightstar.calculator.parser;

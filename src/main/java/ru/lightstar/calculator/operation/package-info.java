@@ -4,4 +4,4 @@
  * @author LightStar
  * @since 0.0.1
  */
-package ru.lightstar.calculate.operation;
+package ru.lightstar.calculator.operation;

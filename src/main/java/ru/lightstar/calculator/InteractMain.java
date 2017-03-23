@@ -1,4 +1,4 @@
-package ru.lightstar.calculate;
+package ru.lightstar.calculator;
 
 /**
  * InteractMain class, used as entry point for <code>InteractRunner</code> runner

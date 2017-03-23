@@ -1,4 +1,4 @@
-package ru.lightstar.calculate;
+package ru.lightstar.calculator;
 
 /**
  * ArgMain class, used as entry point for <code>ArgRunner</code> runner
